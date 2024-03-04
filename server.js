@@ -108,3 +108,8 @@ app.delete("/api/employees/:id", async (req, res, next) => {
     next(error);
   }
 });
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.json({ error: err });
+});
